@@ -5,11 +5,17 @@ on:
   # types is used to specify the activity types
     types:
       - opened
+  # can also filter for branches for every pull_request
   workflow_dispatch:
   push:
   # branches is an event filter
     branches:
       - master
+    # specify branches as - dev-* # for all branches with name dev-....
+    # feat/** this allows branches feat/... and feat/...../....  # thus ** allows further slashes
+  # can also add the path: filter
+  #paths:
+  # - **.js # will be triggered if any js file is pushed on to the main branch
 jobs:
   deploy:
     runs-on: ubuntu-latest
