@@ -1,0 +1,22 @@
+---
+name: Deployment
+on:
+  pull_request:
+  # types is used to specify the activity types
+    types:
+      - opened
+  workflow_dispatch:
+  push:
+  # branches is an event filter
+    branches:
+      - master
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v3
+      - name: Install dependencies, Run lint and Tests
+        run: echo 'Some configuration going on...'
+      - name: Deploy
+        run: echo "Deploy project to hosting site"
